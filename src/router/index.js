@@ -7,7 +7,7 @@ const RouterLink = () => {
     return (
         <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/product/:id" component={Detail} />
+            <Route exact path="/product/:id" component={Detail} exact />
         </Switch>
     )
 };

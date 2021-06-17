@@ -2,8 +2,8 @@ import React from 'react';
 
 const Rating = (props) => {
     const { rating, count_review } = props;
-    return (
 
+    return (
         <div class="rating">
             <span>
                 <i className={rating >= 1 ? "fa fa-star text-warning" : rating >= 0.5 ? 'far fa-star' : 'far fa-star'}></i>
@@ -15,6 +15,7 @@ const Rating = (props) => {
             <span> {`${count_review} Review`}</span>
         </div>
     );
+
 };
 
 export default Rating;

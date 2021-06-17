@@ -1,12 +1,27 @@
 import React from 'react';
 import '../assets/css/product/Detail.css';
+import Rating from '../product/Rating';
+import data from '../../dummy/data';
 
-const Detail = () => {
+const Detail = (props) => {
+    const product = data.products.find(x => x._id == props.match.params.id);
+    let rating = null;
+    let message = null;
+    console.log(props.match.params.id);
+    if (!product) {
+        return <h1 class="text-center fw-bold text-muted mt-5 mb-5">Product Not Found</h1>
+    }
+    if (product.rating == 0) {
+        message = 'Belum ada review';
+    } else {
+        rating = product.rating;
+    }
+
     return (
         <div class="container mt-5 mb-5">
             <div class="row mt-5 mb-5">
                 <div class="col-md-6">
-                    <img class="img-fluid" />
+                    <img class="img-fluid" src={product.image} />
                     <div class="row mt-3 mobile">
                         <div class="col-3">
                             <img class="img-fluid" />
@@ -31,12 +46,12 @@ const Detail = () => {
                             <li class="breadcrumb-item">
                                 <a to="/" class="bread-item text-muted">T-Shirt</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Product Title</li>
+                            <li class="breadcrumb-item active" aria-current="page">{product.name}</li>
                         </ol>
                     </nav>
-                    <h1 class="text-muted fw-bold">Product Title</h1>
+                    <h1 class="text-muted fw-bold">{product.name}</h1>
                     <hr />
-                    <h3>Product Price</h3>
+                    <h3>Rp. {product.price}</h3>
                     <div class="row mt-3">
                         <div class="col-md-2 col-2">
                             <p class="fw-bold pt-2">Size</p>
@@ -52,13 +67,16 @@ const Detail = () => {
                                 >Choose an option</button>
                                 <ul class="dropdown-menu rounded-0" aria-labelledby="dropdownMenuButton1">
                                     <li>
-                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">{product.size[0]}</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">{product.size[1]}</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <a class="dropdown-item" href="#">{product.size[2]}</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">{product.size[3]}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -81,7 +99,7 @@ const Detail = () => {
                                         name="quantity"
                                         class="text-center w-50"
                                         min="1"
-
+                                        value="1"
                                         max="100"
                                     />
                                     <span class="input-group-btn">
@@ -193,7 +211,7 @@ const Detail = () => {
                             role="tabpanel"
                             aria-labelledby="nav-contact-tab">
                             <h4 class="fw-bold mt-3">Reviews</h4>
-                            <p class="text-muted">There are no reviews yet.</p>
+                            <Rating rating={rating} count_review={product.count_review} />
 
                             <div class="card review-card-detail">
                                 <div class="p-5">
