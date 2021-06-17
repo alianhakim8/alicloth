@@ -1,0 +1,28 @@
+.cover-1,
+.cover-2,
+.cover-3 {
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cover-1 {
+  background-image: url(https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1049&q=80);
+}
+
+.cover-2 {
+  background-image: url(https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80);
+}
+
+.cover-3 {
+  background-image: url(https://images.unsplash.com/photo-1604898426702-4b4f1c5e973a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1984&q=80);
+}
+
+@media only screen and (max-width: 600px) {
+  .cover-1,
+  .cover-2,
+  .cover-3 {
+    height: 200px;
+  }
+}
