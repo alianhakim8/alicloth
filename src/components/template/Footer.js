@@ -71,7 +71,7 @@ const Footer = () => {
                     <div class="col-12">
                         <h3 class="text-uppercase">Hubungi kami</h3>
                         <p>
-                            <i class="fas fa-map-marker-alt"></i> Jl. Ciwaruga No.53 Kecamatan Parongpong Kabupaten Bandung Barat
+                            <i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;Jl. Ciwaruga No.53 Kecamatan Parongpong Kabupaten Bandung Barat
                         </p>
                     </div>
                 </div>

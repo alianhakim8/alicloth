@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../assets/css/product/Detail.css';
 import Rating from '../product/Rating';
 import data from '../../dummy/data';
@@ -20,31 +21,31 @@ const Detail = (props) => {
     return (
         <div class="container mt-5 mb-5">
             <div class="row mt-5 mb-5">
-                <div class="col-md-6">
+                <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <img class="img-fluid" src={product.image} />
                     <div class="row mt-3 mobile">
                         <div class="col-3">
-                            <img class="img-fluid" />
+                            <img class="img-fluid" src={product.image} />
                         </div>
                         <div class="col-3">
-                            <img class="img-fluid" />
+                            <img class="img-fluid" src={product.image} />
                         </div>
                         <div class="col-3">
-                            <img class="img-fluid" />
+                            <img class="img-fluid" src={product.image} />
                         </div>
                         <div class="col-3">
-                            <img class="img-fluid" />
+                            <img class="img-fluid" src={product.image} />
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a to="/" class="bread-item text-muted">Home</a>
+                                <Link to="/" class="bread-item text-muted">Home</Link>
                             </li>
                             <li class="breadcrumb-item">
-                                <a to="/" class="bread-item text-muted">T-Shirt</a>
+                                <Link to="/all" class="bread-item text-muted">T-Shirt</Link>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">{product.name}</li>
                         </ol>
@@ -53,10 +54,10 @@ const Detail = (props) => {
                     <hr />
                     <h3>Rp. {product.price}</h3>
                     <div class="row mt-3">
-                        <div class="col-md-2 col-2">
+                        <div class="col-4 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
                             <p class="fw-bold pt-2">Size</p>
                         </div>
-                        <div class="col-md-6 col-6">
+                        <div class="col-4 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-6">
                             <div class="dropdown">
                                 <button
                                     class="btn btn-transparent dropdown-toggle"
@@ -81,54 +82,56 @@ const Detail = (props) => {
                                 </ul>
                             </div>
                         </div>
-                        <div class="row mt-5">
-                            <div class="col-md-4 col-5">
-                                <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <button
-                                            type="button"
-                                            class="quantity-left-minus btn btn-dark btn-number rounded-0"
-                                            data-type="minus"
-                                            data-field>
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                    </span>
-                                    <input
-                                        type="text"
-                                        id="quantity"
-                                        name="quantity"
-                                        class="text-center w-50"
-                                        min="1"
-                                        value="1"
-                                        max="100"
-                                    />
-                                    <span class="input-group-btn">
-                                        <button
-                                            type="button"
-                                            class="quantity-right-plus btn btn-dark btn-number rounded-0"
-                                            data-type="plus"
-                                            data-field>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </span>
+                        {product.stock > 0 ?
+                            <div>
+                                <div class="row">
+                                    <div class="col-7 col-xl-4 col-xxl-4 col-5">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button
+                                                    type="button"
+                                                    class="quantity-left-minus btn btn-dark btn-number rounded-0"
+                                                    data-type="minus"
+                                                    data-field>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                            </span>
+                                            <span
+                                                type="text"
+                                                id="quantity"
+                                                name="quantity"
+                                                class="text-center pt-1 w-50 fw-bold p"
+                                            >1</span>
+                                            <span class="input-group-btn">
+                                                <button
+                                                    type="button"
+                                                    class="quantity-right-plus btn btn-dark btn-number rounded-0"
+                                                    data-type="plus"
+                                                    data-field>
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 col-md-5">
+                                        <button class="btn btn-dark">Add To Cart</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-7 col-7">
-                                <button class="btn btn-dark">Add To Cart</button>
+                            : <span>Stock Kosong</span>
+                        }
+                        <div class="row mt-5 desktop">
+                            <div class="col-3">
+                                <img class="img-fluid" src={product.image} />
                             </div>
-                            <div class="row mt-3 desktop">
-                                <div class="col-3">
-                                    <img class="img-fluid" />
-                                </div>
-                                <div class="col-3">
-                                    <img class="img-fluid" />
-                                </div>
-                                <div class="col-3">
-                                    <img class="img-fluid" />
-                                </div>
-                                <div class="col-3">
-                                    <img class="img-fluid" />
-                                </div>
+                            <div class="col-3">
+                                <img class="img-fluid" src={product.image} />
+                            </div>
+                            <div class="col-3">
+                                <img class="img-fluid" src={product.image} />
+                            </div>
+                            <div class="col-3">
+                                <img class="img-fluid" src={product.image} />
                             </div>
                         </div>
                     </div>
@@ -179,7 +182,7 @@ const Detail = (props) => {
                             aria-labelledby="nav-home-tab">
                             <p
                                 class="mt-3"
-                            >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut cumque possimus quasi sequi temporibus ullam, animi quidem voluptate in dolorem rem, magni architecto alias sunt distinctio earum perferendis velit. Ipsam labore, aliquam amet numquam commodi, iste, quaerat sit esse distinctio nobis repellendus sapiente adipisci ipsa id non! Consectetur provident fugit ab aut aperiam repellendus ipsam, deleniti expedita eum, cupiditate molestiae alias voluptatibus incidunt animi quibusdam perferendis esse minima eius nemo quisquam iusto est qui ratione error. Quam sapiente minima ducimus quis placeat mollitia saepe illo, fuga accusamus commodi iure, blanditiis consequuntur aliquid, aliquam qui aut amet harum. Possimus iure id impedit dignissimos repellat ratione, ea repudiandae, commodi ipsam similique voluptatibus rem enim, accusamus expedita nihil natus cumque. Veniam aperiam tenetur totam molestiae magni pariatur aliquam, obcaecati sed saepe ipsam dolore expedita ducimus, officia necessitatibus facere culpa eum exercitationem voluptates recusandae tempora rem! Quo ut inventore quidem nostrum deserunt illo nobis? Ex, quia debitis animi necessitatibus labore quidem maxime deserunt a perferendis, numquam explicabo laudantium rem, modi nulla iste. Voluptatem nostrum cum mollitia magni iste perferendis molestias fugit dolores ut, impedit velit illo doloremque molestiae accusantium rerum magnam debitis veritatis eos suscipit dignissimos vitae asperiores. Repudiandae libero consequuntur quae praesentium magnam!</p>
+                            >{product.description}</p>
                         </div>
                         <div
                             class="tab-pane fade"
@@ -200,7 +203,7 @@ const Detail = (props) => {
                                     <p class="text-muted fw-bold">SIZE</p>
                                 </div>
                                 <div class="col-md-6 text-start">
-                                    <p>Size, S, M, L, XL, XXL, 3XL, 4XL</p>
+                                    <p>{product.size.join(', ')}</p>
                                 </div>
                                 <hr />
                             </div>

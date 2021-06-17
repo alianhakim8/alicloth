@@ -11,6 +11,7 @@ const data = {
             price: "120.000",
             rating: 0,
             count_review: 0,
+            stock: 12,
             description: 'Hight quality t-shirt'
         },
         {
@@ -24,6 +25,7 @@ const data = {
             price: "250.000",
             rating: 4.5,
             count_review: 5,
+            stock: 12,
             description: 'Hight quality t-shirt'
         }, {
             _id: 3,
@@ -36,6 +38,7 @@ const data = {
             price: "150.000",
             rating: 4.5,
             count_review: 8,
+            stock: 12,
             description: 'Hight quality t-shirt'
         },
         {
@@ -49,6 +52,7 @@ const data = {
             price: "300.000",
             rating: 4.5,
             count_review: 1,
+            stock: 12,
             description: 'Hight quality t-shirt'
         },
         {
@@ -62,6 +66,7 @@ const data = {
             price: "300.000",
             rating: 4.5,
             count_review: 6,
+            stock: 12,
             description: 'Hight quality t-shirt'
         }
     ]

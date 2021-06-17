@@ -11,7 +11,7 @@ const Product = (props) => {
                 <div class="card-body">
                     <span class="badge bg-dark text-light"> Kaos Pria </span>
                     <Link to={`product/${product._id}`} class=" mt-2 text-decoration-none text-dark">
-                        <h3>{product.name}</h3>
+                        <h3 class="mt-2">{product.name}</h3>
                     </Link>
                     <p>Rp. {product.price}</p>
                     <Rating rating={product.rating} count_review={product.count_review} />
